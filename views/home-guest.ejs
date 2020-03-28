@@ -38,7 +38,7 @@
       <h1 class="display-3">We are delivery company!</h1>      
     </div>
     <div class="col-lg-5 pl-lg-5 pb-3 py-lg-5">
-      <form action="#" method="POST" id="registration-form">
+      <form action="/register" method="POST" id="registration-form">
 
           <div class="form-group">
             <label for="username-register" class="text-muted mb-1"><small>Username</small></label>
@@ -54,8 +54,17 @@
             <label for="password-register" class="text-muted mb-1"><small>Password</small></label>
             <input name="password" id="password-register" class="form-control" type="password" placeholder="Create a password">
           </div>
+
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="role-label btn btn-secondary active">
+              <input class="role" type="radio" name="role" id="option1" value="driver" checked>I am driver
+            </label>
+            <label class="role-label btn btn-secondary">
+              <input class="role" type="radio" name="role" id="option2" value="shipper"> I am shipper
+            </label>
+          </div>
           
-          <button type="submit" class="py-3 mt-4 btn btn-lg btn-success btn-block">Sign up for OurApp</button>
+          <button type="submit" class="py-3 mt-4 btn btn-lg btn-success btn-block">Sign up for deliveryLoads</button>
           
         </form>
       </div>
@@ -64,7 +73,7 @@
   
 <!-- footer begins -->
 <footer class="border-top text-center small text-muted py-3">
-  <p class="m-0">Copyright &copy; 2019 <a href="/" class="text-muted">OurApp</a>. All rights reserved.</p>
+  <p class="m-0">Copyright &copy; 2020 <a href="/" class="text-muted">deliveryLoads</a>. All rights reserved.</p>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

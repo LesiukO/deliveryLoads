@@ -373,3 +373,8 @@ textarea.tall-textarea {
   outline: none;
   font-size: .75rem;
 }
+
+.role-label.active {
+    background-color: #202021 !important;
+    background-color: #202021 ;
+}
