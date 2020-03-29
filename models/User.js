@@ -38,7 +38,7 @@ User.prototype.login = function () {
             if (attemptedUser && attemptedUser.password == this.data.password) {
                 resolve('Congrats')
             } else {
-                reject("no")
+                reject("Invalid username or password")
             }
         }).catch(function () {
             reject("Please try againg later.")
