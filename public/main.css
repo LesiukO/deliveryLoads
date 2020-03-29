@@ -374,7 +374,14 @@ textarea.tall-textarea {
   font-size: .75rem;
 }
 
+
+// --------------------------------------------
+// my own styles
 .role-label.active {
     background-color: #202021 !important;
-    background-color: #202021 ;
+}
+
+.header__username,
+.header__role {
+  color: #fff;
 }
