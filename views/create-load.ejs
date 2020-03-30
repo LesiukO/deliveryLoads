@@ -1,0 +1,36 @@
+<%- include('includes/header') %>
+  
+  <div class="container py-md-5 container--narrow">
+    <form action="/create-load" method="POST">
+      <div class="form-group">
+        <label for="post-title" class="text-muted mb-1"><small>Load title</small></label>
+        <input required name="title" id="post-title" class="form-control form-control-lg form-control-title" type="text" placeholder="" autocomplete="off">
+      </div>
+
+      <div class="row form-group">
+        <div class="col">
+            <label for="load-width" class="text-muted mb-1"><small>width</small></label>
+            <input required name="width" id="load-width" class="form-control form-control-lg form-control-title" type="text" placeholder="" autocomplete="off">
+        </div>
+        <div class="col">
+            <label for="load-length" class="text-muted mb-1"><small>length</small></label>
+            <input required name="length" id="load-length" class="form-control form-control-lg form-control-title" type="text" placeholder="" autocomplete="off">
+        </div>
+        <div class="col">
+            <label for="load-height" class="text-muted mb-1"><small>height</small></label>
+            <input required name="height" id="load-height" class="form-control form-control-lg form-control-title" type="text" placeholder="" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <div class="col">
+            <label for="load-height" class="text-muted mb-1"><small>Weight</small></label>
+            <input required name="weight" id="load-height" class="form-control form-control-lg form-control-title" type="text" placeholder="" autocomplete="off">
+        </div>
+      </div>
+      
+      <button class="btn btn-primary">Create New Load</button>
+    </form>
+  </div>
+  
+  <%- include('includes/footer') %>

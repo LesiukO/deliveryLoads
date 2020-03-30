@@ -1,0 +1,30 @@
+<%- include('includes/header') %>
+  
+  <div class="container py-md-5 container--narrow">
+    <form action="/create-truck" method="POST">
+      <div class="form-group">
+        <label for="post-title" class="text-muted mb-1"><small>Truck title</small></label>
+        <input required name="title" id="post-title" class="form-control form-control-lg form-control-title" type="text" placeholder="" autocomplete="off">
+      </div>
+
+        <div class="btn-group btn-group-toggle form-group row" data-toggle="buttons">
+            <label class="role-label btn btn-secondary active">
+              <input class="truck-type" type="radio" name="trucktype" id="option1" value="sprinter" checked>SPRINTER
+            </label>
+            <label class="role-label btn btn-secondary">
+              <input class="truck-type" type="radio" name="trucktype" id="option2" value="small"> SMALL
+            </label>
+            <label class="role-label btn btn-secondary">
+              <input class="truck-type" type="radio" name="trucktype" id="option2" value="large"> LARGE
+            </label>
+          </div>
+      
+      <div class="row">
+          <div class="col">
+            <button class="btn btn-primary">Create New Truck</button>
+          </div>
+      </div>
+    </form>
+  </div>
+  
+  <%- include('includes/footer') %>
