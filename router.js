@@ -11,6 +11,9 @@ router.post ('/register', userController.register)
 router.post ('/login', userController.login)
 router.post ('/logout', userController.logout)
 
+// profile routes
+router.get('/profile/:username', userController.ifUserExists, userController.profileScreen)
+
 // load related routes
 router.get('/create-load', userController.mustBeLoggedIn, loadController.viewCreateScreen)
 router.post('/create-load', userController.mustBeLoggedIn, loadController.create)
