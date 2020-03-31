@@ -14,9 +14,11 @@ router.post ('/logout', userController.logout)
 // load related routes
 router.get('/create-load', userController.mustBeLoggedIn, loadController.viewCreateScreen)
 router.post('/create-load', userController.mustBeLoggedIn, loadController.create)
+router.get('/load/:id', loadController.viewSingle)
 
 // truck related routes
 router.get('/create-truck', userController.mustBeLoggedIn, truckController.viewCreateScreen)
 router.post('/create-truck', userController.mustBeLoggedIn, truckController.create)
+router.get('/truck/:id', truckController.viewSingle)
 
 module.exports = router

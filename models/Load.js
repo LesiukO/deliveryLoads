@@ -1,9 +1,10 @@
 const loadsCollection = require('../db').db().collection("loads")
 const ObjectID = require('mongodb').ObjectID
+const User = require('./User')
 
 let Load = function (data, userId) {
     this.data = data
-    this.created_by = userId
+    this.userId = userId
     this.errors = []
 }
 
@@ -19,7 +20,7 @@ Load.prototype.cleanUp = function () {
         },
         weight: parseFloat(this.data.weight),
         createdDate: new Date(),
-        created_by: ObjectID(this.created_by),
+        created_by: ObjectID(this.userId),
     }
     console.log(this.data)
 }
@@ -52,6 +53,41 @@ Load.prototype.create = function () {
         reject(this.errors)        
     }
  })
+}  
+
+Load.findSingleById = function (id) {
+    return new Promise( async function (resolve, reject) {
+        if (typeof (id) != "string" || !ObjectID.isValid(id)) {
+            reject()
+            return
+        }
+        // let load = await loadsCollection.findOne({_id: new ObjectID(id)})
+        let loads = await loadsCollection.aggregate([
+            {$match: {_id: new ObjectID(id)}},
+            {$lookup: {from: "users", localField: "created_by", foreignField: "_id", as: "authorDocument"}},
+            {$project: {
+                title: 1,
+                weight: 1,
+                dimensions: 1,
+                createdDate: 1,
+                created_by: {$arrayElemAt: ["$authorDocument", 0]}
+            }}
+        ]).toArray()
+
+        loads = loads.map( load => {
+            load.created_by = {
+                username: load.created_by.username
+            }
+            return load
+        })
+
+        if (loads.length) {
+            console.log(loads[0])
+            resolve(loads[0]) 
+        } else {
+            reject() 
+        }
+    })
 }
 
 module.exports = Load
